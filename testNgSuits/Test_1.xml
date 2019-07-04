@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<suite name="Test_1">
+    <parameter name="driverPath" value="src\\main\\resources\\Geckodriver.exe"/>
+    <parameter name="url" value="http://demo.eurobank.pl/"/>
+    <parameter name="login" value="12345678"/>
+    <parameter name="password" value="asfinasssss"/>
+    <parameter name="taxFormNumber" value="PIT38"/>
+    <parameter name="revenueOffice" value="Urząd Skarbowy we Wrocławiu"/>
+    <parameter name="account" value="79 1140 2017 0000 4102 0728 3007"/>
+    <parameter name="taxpayer" value="Anna Nieurobankowa"/>
+    <parameter name="address" value="Aleje Jerozolimskie 172"/>
+    <parameter name="zipcode" value="01-666 Warszawa"/>
+    <parameter name="idType" value="Dowód osobisty"/>
+    <parameter name="idNumber" value="ARK620339"/>
+    <parameter name="obligationNumber" value="ABC123"/>
+    <parameter name="year" value="2019"/>
+    <parameter name="quarter" value="02"/>
+    <parameter name="amount" value="999,99"/>
+    <parameter name="email" value="abc@gmail.com"/>
+    <parameter name="token" value="123 123"/>
+
+
+    <test name="Wykonaj transakcję">
+        <classes>
+            <class name="pl.b2b.eurobank.cfg.CfgTest">
+                <methods>
+                    <include name="setUp"/>
+                    <include name="openSite"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.eurobank.page.loginPage.LoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.eurobank.page.paymentPage.PaymentTest">
+                <methods>
+                    <include name="clickOnPaymentPageTest"/>
+                    <include name="clickOnTransferToRevenueServiceTest"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.eurobank.page.transferPage.TransferTest">
+                <methods>
+                    <include name="transferFormTest"/>
+                </methods>
+            </class>
+
+            <class name="pl.b2b.eurobank.report.ReportTest">
+                <methods>
+                    <include name="reportTest"/>
+                </methods>
+            </class>
+            <class name="pl.b2b.eurobank.page.confirmationPage.ConfirmationTest">
+                <methods>
+                    <include name="confirmationPageTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="test2">
+        <classes>
+            <class name="pl.b2b.eurobank.report.ReportTest">
+                <methods>
+                    <include name="checkingStatus"/>
+                </methods>
+            </class>
+
+            <class name="pl.b2b.eurobank.page.logoutPage.LogoutTest">
+                <methods>
+                    <include name="logoutTest"/>
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+    <!--<test name="zamkniecie web drivera">-->
+    <!--<classes>-->
+    <!--<class name="pl.b2b.eurobank.cfg.CfgTest">-->
+    <!--<methods>-->
+    <!--<include name="tearUp"/>-->
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+</suite>
